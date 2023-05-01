@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Form from "../../Components/Form";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const TravelDetails = () => {
+  const user = useContext(AuthContext);
+  console.log(user);
   const travelDetailsData = useLoaderData();
   console.log(travelDetailsData);
   return (
