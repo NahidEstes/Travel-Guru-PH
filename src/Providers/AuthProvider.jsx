@@ -31,17 +31,17 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  //   useEffect(() => {
-  //     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //       // console.log("user loggedIn", currentUser);
-  //       setUser(currentUser);
-  //       setLoading(false);
-  //     });
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      // console.log("user loggedIn", currentUser);
+      setUser(currentUser);
+      setLoading(false);
+    });
 
-  //     return () => {
-  //       unsubscribe();
-  //     };
-  //   }, []);
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   const authInfo = { user, createUser, loginUser, logOut, loading };
 

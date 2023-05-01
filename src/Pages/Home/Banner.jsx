@@ -15,7 +15,7 @@ const Banner = ({ tourData }) => {
         <img src={img_url} alt="" />
         <div className="absolute bottom-0 left-3">
           <h1 className="text-white font-bold text-2xl">
-            <Link to={`/travel-details/${tourData.id}`}>{location}</Link>
+            <Link to={`/travel-details/${id}`}>{location}</Link>
           </h1>
         </div>
       </div>

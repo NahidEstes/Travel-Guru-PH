@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import {
   BoltIcon,
@@ -7,9 +7,14 @@ import {
   BookOpenIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+  const logOutHandler = () => {
+    logOut();
+  };
   return (
     <div className="lg:bg-neutral ">
       <div className="relative flex items-center justify-between px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -63,6 +68,9 @@ const Header = () => {
             >
               Blogs
             </NavLink>
+          </li>
+          <li onClick={logOutHandler} className="text-white cursor-pointer">
+            {user && "Logout"}
           </li>
         </ul>
       </div>

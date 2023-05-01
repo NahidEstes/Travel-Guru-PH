@@ -5,6 +5,7 @@ import Main from "../Layouts/Main/Main";
 import TravelDetails from "../Pages/TravelDetails/TravelDetails";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/travel-details/:id",
-        element: <TravelDetails />,
+        element: (
+          <PrivateRoute>
+            <TravelDetails />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/travel-details/${params.id}`),
       },
