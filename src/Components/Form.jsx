@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DatePicker from "./DatePicker";
 
 function Form() {
   const [origin, setOrigin] = useState("");
@@ -47,6 +48,9 @@ function Form() {
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
           />
+        </div>
+        <div>
+          <DatePicker />
         </div>
         <div className="flex items-center justify-center">
           <button
